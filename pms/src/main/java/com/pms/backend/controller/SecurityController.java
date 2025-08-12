@@ -22,8 +22,12 @@ public class SecurityController {
     }
 
     // GET by ID
+    // @GetMapping("/{id}")
+    // public ResponseEntity<Security> getSecurityById(@PathVariable Long id) {
+    //     return ResponseEntity.ok(securityService.getSecurityById(id));
+    // }
     @GetMapping("/{id}")
-    public ResponseEntity<Security> getSecurityById(@PathVariable Long id) {
+    public ResponseEntity<Security> getSecurityById(@PathVariable("id") Long id) {
         return ResponseEntity.ok(securityService.getSecurityById(id));
     }
 
