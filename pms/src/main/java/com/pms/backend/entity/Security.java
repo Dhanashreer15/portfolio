@@ -39,13 +39,16 @@ public class Security {
 
     @Column(name = "series")
     private String series;
+    
+    @Column(name= "price")
+    private float price;
 
     @ManyToOne
     @JoinColumn(name = "asset_class_id")
     private AssetClass assetClass;
 
 	public Security(Long id, String exchange, String symbol, String name, String isin, String sector, String industry,
-			String currency, String country, String securityCode, String series, AssetClass assetClass) {
+			String currency, String country, String securityCode, String series,float price, AssetClass assetClass) {
 		super();
 		this.id = id;
 		this.exchange = exchange;
@@ -58,6 +61,7 @@ public class Security {
 		this.country = country;
 		this.securityCode = securityCode;
 		this.series = series;
+		this.price=price;
 		this.assetClass = assetClass;
 	}
 
@@ -151,6 +155,15 @@ public class Security {
 
 	public void setSeries(String series) {
 		this.series = series;
+	}
+	
+
+	public float getPrice() {
+		return price;
+	}
+
+	public void setPrice(float price) {
+		this.price = price;
 	}
 
 	public AssetClass getAssetClass() {
